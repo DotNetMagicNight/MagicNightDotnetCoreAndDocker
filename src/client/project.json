@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
+  },
+    "dependencies": {
+        "Service": {
+            "target": "project"
+        },
+        "Grpc.Core": "1.0.1",
+        "Grpc": "1.0.1",
+        "Google.Protobuf": "3.0.0"
+    },
+  "frameworks": {
+    "netcoreapp1.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.1.0"
+        }
+      },
+      "imports": "dnxcore50"
+    }
+  }
+}

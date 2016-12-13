@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package Dd;
+
+//
+// Messages
+// 
+message GetRequest {
+  string key = 1;
+}
+
+message GetResponse {
+  bool found = 1;
+  string value = 2;
+  string node = 3;
+}
+
+message SetRequest {
+  string key = 1;
+  string value = 2;
+}
+
+message SetResponse {
+  bool success = 1;
+}
+
+//
+// Services
+// 
+service DictionaryService {
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc Set (SetRequest) returns (SetResponse);
+}

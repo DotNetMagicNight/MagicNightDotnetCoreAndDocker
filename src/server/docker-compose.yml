@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+  ddserver1:
+    image: ddserver1:debug
+    build:
+      context: .
+      dockerfile: Dockerfile1
+    depends_on:
+      - ddserver2
+    ports:
+      - "50051:50051"
+    environment:
+      - REMOTE_DEBUGGING
+
+  ddserver2:
+    image: ddserver2:debug
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    depends_on:
+      - ddserver3
+    ports:
+      - "50052:50052"
+    environment:
+      - REMOTE_DEBUGGING
+
+  ddserver3:
+    image: ddserver3:debug
+    build:
+      context: .
+      dockerfile: Dockerfile3
+    ports:
+      - "50053:50053"
+    environment:
+      - REMOTE_DEBUGGING
